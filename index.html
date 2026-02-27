@@ -406,7 +406,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
 .pstep{
   display:flex;align-items:center;gap:12px;
   background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.07);
-  border-radius:10px;padding:12px 14px;transition:background 0.2s;
+  border-radius:100px;padding:12px 14px;transition:background 0.2s;
 }
 .pstep:hover{background:rgba(255,255,255,0.1)}
 .pnum{
@@ -530,22 +530,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
 
 /* ─── RESPONSIVE ────────────────────────── */
 @media(max-width:768px){
-  .layout{grid-template-columns:1fr}
-  .sidebar{position:static;height:auto;display:flex;flex-wrap:nowrap;overflow-x:auto;padding:8px 12px;gap:6px;border-right:none;border-bottom:1px solid var(--border)}
-  .sidebar::-webkit-scrollbar{display:none}
-  .sidebar-label{display:none}
-  .nitem{flex-shrink:0;border-left:none;border-radius:8px;padding:8px 14px;white-space:nowrap}
-  .nitem.active{border-radius:8px}
-  .ncheck{display:none}
-  .content{padding:28px 18px 60px}
+  .layout{display:block} 
+  .sidebar{display:none} 
+  .page{display:block !important; margin-bottom: 60px;} 
+  .content{padding:28px 18px 60px; max-width: 100%;}
   .hero{padding:32px 20px 60px}
   .catalog-grid{grid-template-columns:repeat(2,1fr)}
+  .topbar{justify-content: center;}
+  .progress-wrap{display:none;} 
+  .topbar-pct{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════ HERO ═══════ -->
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-petals" id="petals"></div>
@@ -591,10 +589,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
   </a>
 </section>
 
-<!-- ═══════ APP ═══════ -->
 <div id="tutorial">
 
-<!-- TOPBAR -->
 <header class="topbar">
   <div class="topbar-brand">
     <svg class="topbar-logo" viewBox="0 0 1816 460" xmlns="http://www.w3.org/2000/svg">
@@ -617,7 +613,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
 </header>
 
 <div class="layout">
-  <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sidebar-label">Módulos</div>
     <button class="nitem active" onclick="goTo('fluxo',this)" data-id="fluxo"><i class="fa-solid fa-route"></i> Fluxo de Atendimento<span class="ncheck">✓</span></button>
@@ -629,16 +624,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
     <a href="https://app.agoramenu.com.br/floricultura_sublime" target="_blank" style="display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;"><i class="fa-solid fa-globe" style="font-size:13px;width:16px;text-align:center;color:var(--brand)"></i> Agora Menu</a>
   </nav>
 
-  <!-- CONTENT -->
   <main class="content">
 
-  <!-- ① FLUXO -->
   <div id="fluxo" class="page active">
     <div class="eyebrow"><i class="fa-solid fa-route"></i> Módulo 1</div>
     <h1 class="ptitle">Fluxo de Atendimento</h1>
     <p class="pdesc">Cada passo abaixo é expansível — clique para ver o script de chat com exemplos reais de como a conversa acontece.</p>
 
-    <!-- STEP 1 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">1</div>
@@ -667,7 +659,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 2 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">2</div>
@@ -696,7 +687,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 3 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">3</div>
@@ -718,7 +708,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 4 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">4</div>
@@ -739,7 +728,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 5 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">5</div>
@@ -759,7 +747,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
             <div class="pix-box">
               <i class="fa-brands fa-pix"></i>
               <p>Chave PIX da loja</p>
-              <div class="pix-key">floricultura@sublime.com.br</div>
+              <div class="pix-key">13991925627</div>
             </div>
             <div class="pay-total"><span>Total do pedido</span><strong>R$ 89,90</strong></div>
           </div>
@@ -767,7 +755,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 6 — ALERT -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num alert-num"><i class="fa-solid fa-bolt" style="font-size:14px"></i></div>
@@ -788,7 +775,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
       </div>
     </div>
 
-    <!-- STEP 7 + 8 -->
     <div class="step-acc">
       <div class="step-head" onclick="toggleStep(this)">
         <div class="step-num">7</div>
@@ -812,8 +798,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
     <button class="complete-btn pending" id="btn-fluxo" onclick="markDone('fluxo')"><i class="fa-solid fa-check"></i> Marcar módulo como concluído</button>
   </div>
 
-  <!-- ② PARE TUDO -->
-  <div id="paretudo" class="page">
+  <div id="paretudo" class="page active">
     <div class="eyebrow"><i class="fa-solid fa-bolt"></i> Módulo 2</div>
     <h1 class="ptitle">Protocolo "Pare Tudo"</h1>
     <p class="pdesc">Comprovante recebido = prioridade máxima absoluta. Execute os 5 passos abaixo sem interrupção.</p>
@@ -834,8 +819,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
     <button class="complete-btn pending" id="btn-paretudo" onclick="markDone('paretudo')"><i class="fa-solid fa-check"></i> Marcar módulo como concluído</button>
   </div>
 
-  <!-- ③ ETIQUETAS -->
-  <div id="etiquetas" class="page">
+  <div id="etiquetas" class="page active">
     <div class="eyebrow"><i class="fa-solid fa-tags"></i> Módulo 3</div>
     <h1 class="ptitle">Manual de Etiquetas</h1>
     <p class="pdesc">Use sempre a etiqueta correta para cada fase. Isso mantém o funil organizado e garante que nenhum cliente seja esquecido.</p>
@@ -853,8 +837,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);-
     <button class="complete-btn pending" id="btn-etiquetas" onclick="markDone('etiquetas')"><i class="fa-solid fa-check"></i> Marcar módulo como concluído</button>
   </div>
 
-  <!-- ④ ATALHOS -->
-  <div id="atalhos" class="page">
+  <div id="atalhos" class="page active">
     <div class="eyebrow"><i class="fa-solid fa-keyboard"></i> Módulo 4</div>
     <h1 class="ptitle">Biblioteca de Atalhos</h1>
     <p class="pdesc">Clique em cada atalho para ver o texto completo. No WhatsApp, digite <code style="font-family:'DM Mono';font-size:12px;background:var(--warm);padding:2px 7px;border-radius:5px">/código</code> para enviar.</p>
@@ -901,14 +884,13 @@ Foi um prazer atendê-lo(a)! Volte sempre que precisar. 💐</div></div>
     <button class="complete-btn pending" id="btn-atalhos" onclick="markDone('atalhos')"><i class="fa-solid fa-check"></i> Marcar módulo como concluído</button>
   </div>
 
-  <!-- ⑤ VÍDEO -->
-  <div id="video" class="page">
+  <div id="video" class="page active">
     <div class="eyebrow"><i class="fa-solid fa-circle-play"></i> Módulo 5</div>
     <h1 class="ptitle">Vídeo Aula</h1>
     <p class="pdesc">Assista o tutorial completo antes de começar a atender. Mostra na prática todo o processo de ponta a ponta.</p>
     <div class="video-box">
       <div class="video-topbar"><div class="vdot"></div><span class="vlabel">Tutorial Completo — Atendimento WhatsApp · Floricultura Sublime</span></div>
-      <div class="v-embed"><iframe src="https://www.loom.com/embed/90cf4dde6e4742e9ba8625912b7626cb?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; fullscreen"></iframe></div>
+      <div class="v-embed"><iframe src="https://www.loom.com/embed/90cf4dde6e4742e9ba8625912b7626cb?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allow="autoplay; fullscreen"></iframe></div>
       <div class="v-footer"><span>Se o vídeo não carregar, abra no Loom</span><a href="https://www.loom.com/share/90cf4dde6e4742e9ba8625912b7626cb" target="_blank">Abrir no Loom ↗</a></div>
     </div>
     <div class="qgrid">
@@ -956,11 +938,13 @@ const MODULES=['fluxo','paretudo','etiquetas','atalhos','video'];
 const done=new Set();
 
 function goTo(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nitem').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-  document.getElementById('tutorial').scrollIntoView({behavior:'smooth'});
+  if(window.innerWidth > 768) {
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.nitem').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
 // ─── PROGRESS ────────────────────────────
@@ -983,7 +967,6 @@ function markDone(id){
 function toggleStep(head){
   const body=head.nextElementSibling;
   const isOpen=head.classList.contains('open');
-  // close all
   document.querySelectorAll('.step-head.open').forEach(h=>{
     h.classList.remove('open');
     h.nextElementSibling.classList.remove('show');
@@ -991,14 +974,12 @@ function toggleStep(head){
   if(!isOpen){
     head.classList.add('open');
     body.classList.add('show');
-    // init chat if needed
     const msgs=body.querySelector('.chat-messages');
     if(msgs && !msgs.dataset.loaded){
       msgs.dataset.loaded='1';
       const id=msgs.id;
       if(chatScripts[id]) animateChat(id, chatScripts[id]);
     }
-    // init catalog
     if(body.querySelector('#catalogGrid') && !document.getElementById('catalogGrid').dataset.loaded){
       buildCatalog();
     }
@@ -1007,7 +988,6 @@ function toggleStep(head){
 
 function toggleSc(el){el.classList.toggle('open')}
 
-// ─── CHAT TABS ────────────────────────────
 function switchChat(btn,targetId){
   const body=btn.closest('.step-body');
   body.querySelectorAll('.chat-tab').forEach(t=>t.classList.remove('active'));
@@ -1022,7 +1002,6 @@ function switchChat(btn,targetId){
   }
 }
 
-// ─── CHAT ENGINE ─────────────────────────
 function animateChat(containerId, messages){
   const container=document.getElementById(containerId);
   if(!container) return;
@@ -1059,7 +1038,6 @@ function now(){
   return d.getHours().toString().padStart(2,'0')+':'+d.getMinutes().toString().padStart(2,'0');
 }
 
-// ─── CHAT SCRIPTS ────────────────────────
 const chatScripts = {
   'msgs-chat1a':[
     {dir:'in', text:'Oi, tudo bem? 😊', delay:700},
@@ -1138,7 +1116,6 @@ const chatScripts = {
   ],
 };
 
-// ─── CATALOG ─────────────────────────────
 const products=[
   {name:'12 Rosas Vermelhas', price:'R$ 89,90', emoji:'🌹', bg:'#fff0f2'},
   {name:'Buquê Girassóis', price:'R$ 74,90', emoji:'🌻', bg:'#fffbe6'},
@@ -1160,11 +1137,6 @@ function buildCatalog(){
     grid.appendChild(card);
   });
 }
-
-// auto-open first chat on page load
-document.addEventListener('DOMContentLoaded',()=>{
-  // nothing forced on load — chats open when user expands step
-});
 </script>
 </body>
 </html>
